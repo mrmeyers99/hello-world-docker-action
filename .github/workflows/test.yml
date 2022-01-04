@@ -1,0 +1,15 @@
+name: Test Docker image action
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test-from-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mrmeyers99/hello-world-docker-action@v0.1.1
+
+  test-from-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker://ghcr.io/mrmeyers99/hello-world-docker-action:0.1.1
